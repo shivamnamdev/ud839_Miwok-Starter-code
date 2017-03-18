@@ -38,3 +38,14 @@ public class Numbers extends AppCompatActivity {
                listView.setAdapter(adapter);
     }
 }
+
+ listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                    long id) {
+                Intent intent = new Intent(Number.this, Questions.class);
+                String currentPosition = new String(position.toString());
+                intent.putExtra(currentPosition[0],position);
+                startActivity(intent);
+            }
+        });
